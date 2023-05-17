@@ -2,6 +2,8 @@ FROM centos/python-35-centos7:latest
 
 USER root
 
+RUN pip install --upgrade pip
+
 COPY . /tmp/src
 
 RUN mv /tmp/src/.s2i/bin /tmp/scripts
@@ -18,7 +20,6 @@ ENV S2I_SCRIPTS_PATH=/usr/libexec/s2i \
     DISABLE_COLLECTSTATIC=1 \
     DISABLE_MIGRATE=1
     
-RUN pip install --upgrade pip
 RUN /tmp/scripts/assemble
 
 CMD [ "/tmp/scripts/run" ]
