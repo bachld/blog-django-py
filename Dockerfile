@@ -2,6 +2,8 @@ FROM centos/python-35-centos7:latest
 
 USER root
 
+RUN pip install -U pip setuptools wheel
+
 COPY . /tmp/src
 
 RUN mv /tmp/src/.s2i/bin /tmp/scripts
