@@ -6,6 +6,7 @@ set -eo pipefail
 # input to a wheelhouse build, to build Python wheels for required packages.
 # In this case fall through to executing the original 'assemble' script.
 
+# Fix issue you are using pip version 7.1.2, however version 23.2.1 is available
 curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.5
 
 if [ -d /opt/app-root/wheelhouse ]; then
